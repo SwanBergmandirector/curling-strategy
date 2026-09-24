@@ -66,8 +66,8 @@ tabellone. Dal curling vero arrivano, identici:
 Sono invece NOSTRE invenzioni per il tavolo (da validare con gli
 inventori, se il gioco esiste gia'):
 
-  - la griglia 7 colonne x 14 file stampata sulla pista, casa centrata
-    su D11, i numeri di distanza 0-7 stampati nelle caselle della casa
+  - la pista a griglia 7 colonne x 14 file, casa centrata su D11,
+    i numeri di distanza 0-7 stampati nei fori della casa
   - i dadi: 3 dadi peso (d6 normali), 1 dado effetto (facce 0,0,1,1,1,2),
     1 dado spazzata (facce 0,0,+1,+1,+1,+2)
   - il tiro in 5 passi (linea + rotazione, peso, spazzata, effetto, posa)
@@ -80,21 +80,6 @@ dadi arriva in media alla fila 7, zona di guardia; con 3 dadi alla fila
 10-11, la casa; si puo' finire oltre la back line), ma non sono state
 giocate da persone vere: prima della stampa del regolamento conviene
 una partita di prova.
-
-
-LA PISTA (indicazione degli inventori, 24/09/2026)
--------------------------------------------------
-Il piano di gioco simula il parterre di ghiaccio: e' in materiale
-autolubrificante e la superficie e' coperta di microsemisfere in rilievo
-che imitano le goccioline (il "pebble") dei campi veri, cosi' le pietre
-scivolano. Sul sito: sezione "La pista" (con lo spaccato
-assets/superficie.svg), finestra "Cosa contiene", contenuto del box,
-pagine legali. Le pietre non si incastrano: si fanno scivolare fino
-alla casella indicata dai dadi.
-
-Da chiedere: materiale esatto e dimensioni della pista, diametro delle
-semisfere, e se le pietre si lanciano anche "a mano" (a spinta) oppure
-solo con i dadi come nel regolamento proposto.
 
 
 IMMAGINI
