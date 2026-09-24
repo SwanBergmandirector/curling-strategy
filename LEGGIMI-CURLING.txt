@@ -1,0 +1,126 @@
+THE CURLING STRATEGY — SITO VETRINA
+===================================
+Sito statico pronto per Netlify, costruito sulla stessa struttura di
+The Pétanque Strategy (e quindi di The Golf Strategy).
+
+
+COME SI PUBBLICA
+----------------
+Si trascina il contenuto di questa cartella nella finestra "Deploy" di
+Netlify. Non serve nessun passaggio di build: netlify.toml dice gia' a
+Netlify di pubblicare tutto cosi' com'e'.
+
+  index.html                  il sito (una pagina sola, italiano e inglese)
+  netlify.toml                pubblicazione, header di sicurezza, cache
+  assets/                     illustrazioni del sito (SVG)
+  assets/shop/                i 12 soggetti dei puzzle (SVG)
+  assets/og-image.png         anteprima per i social (fronte del box)
+  shop/products.js            catalogo puzzle e merchandising
+  shop/LEGGIMI-merchandising.txt   come si gestisce il catalogo
+  PUZZLE-SOGGETTI.md          i 12 soggetti e i prompt per le opere definitive
+
+Dominio previsto: www.thecurlingstrategy.com (scritto nelle pagine
+legali, sul retro del box disegnato e nell'area riservata).
+
+
+CHE COSA C'E' NEL SITO
+----------------------
+Le stesse sezioni del sito Pétanque, con i contenuti del curling:
+
+  Hero              logo, titolo, dati di gioco, fronte e retro del box
+                    con effetto 3D al passaggio del mouse
+  Nel box           gli 8 elementi della confezione
+  Come si gioca     i 4 gesti: linea, peso, spazzata ed effetto, casa
+  I dadi            i 3 tipi di dado (peso, effetto, spazzata)
+  La pista          il tabellone a griglia con la casa
+  Regolamento       preparazione, il tiro in 5 passi, i tre tiri
+                    (guardia, accosto, bocciata), urti, zona di guardia
+                    libera, punteggio con esempio
+  Acquista ora      contenuto, e-mail e telefono
+  Puzzle            12 puzzle da collezione (6 da 1000 pezzi, 6 da 500)
+  Gioca online      NUOVO: puzzle giocabile nel browser con gli stessi
+                    12 soggetti, tre livelli (3x3, 4x4, 5x5), mosse e tempo
+  Pagine legali     privacy, cookie, termini, recesso
+  Area riservata    Buyer Command Center (link discreto nel footer)
+
+Italiano e inglese con il selettore IT/EN.
+
+
+IL GIOCO: DA DOVE ARRIVANO LE REGOLE
+------------------------------------
+A differenza del sito Pétanque, qui non c'era una scatola ne' un
+regolamento degli inventori. Il gioco sul sito e' una PROPOSTA ricavata
+dalle regole ufficiali del curling (World Curling) e adattata a un
+tabellone. Dal curling vero arrivano, identici:
+
+  - 8 pietre per squadra, tiri alterni, 8 mani (10 nei tornei)
+  - il martello: l'ultima pietra della mano; chi segna lo cede,
+    la mano nulla (blank end) lo lascia dov'era
+  - il punteggio: segna solo la squadra con la pietra piu' vicina al
+    bottone, un punto per ogni pietra che batte la migliore avversaria;
+    contano solo le pietre in casa
+  - la zona di guardia libera e la regola delle cinque pietre
+  - hog line, tee line, back line, la casa a quattro anelli
+  - la mano supplementare in caso di parita', la concessione
+
+Sono invece NOSTRE invenzioni per il tavolo (da validare con gli
+inventori, se il gioco esiste gia'):
+
+  - la griglia 7 colonne x 14 file stampata sulla pista, casa centrata
+    su D11, i numeri di distanza 0-7 stampati nelle caselle della casa
+  - i dadi: 3 dadi peso (d6 normali), 1 dado effetto (facce 0,0,1,1,1,2),
+    1 dado spazzata (facce 0,0,+1,+1,+1,+2)
+  - il tiro in 5 passi (linea + rotazione, peso, spazzata, effetto, posa)
+  - l'urto: la pietra colpita avanza delle file rimaste al tiro, piu' una
+  - numero di giocatori (2-4), eta' (10+), durata (30-45 minuti)
+  - contenuto della confezione (martello, blocco segnapunti)
+
+Le regole sono state provate "a tavolino" per coerenza (un tiro con 2
+dadi arriva in media alla fila 7, zona di guardia; con 3 dadi alla fila
+10-11, la casa; si puo' finire oltre la back line), ma non sono state
+giocate da persone vere: prima della stampa del regolamento conviene
+una partita di prova.
+
+
+LA PISTA (indicazione degli inventori, 24/09/2026)
+-------------------------------------------------
+Il piano di gioco simula il parterre di ghiaccio: e' in materiale
+autolubrificante e la superficie e' coperta di microsemisfere in rilievo
+che imitano le goccioline (il "pebble") dei campi veri, cosi' le pietre
+scivolano. Sul sito: sezione "La pista" (con lo spaccato
+assets/superficie.svg), finestra "Cosa contiene", contenuto del box,
+pagine legali. Le pietre non si incastrano: si fanno scivolare fino
+alla casella indicata dai dadi.
+
+Da chiedere: materiale esatto e dimensioni della pista, diametro delle
+semisfere, e se le pietre si lanciano anche "a mano" (a spinta) oppure
+solo con i dadi come nel regolamento proposto.
+
+
+IMMAGINI
+--------
+Tutte le immagini sono illustrazioni vettoriali (SVG) disegnate per
+questo sito: logo, fronte e retro del box, pista, pietre, dadi, scena,
+e i 12 soggetti dei puzzle. Sono leggere e nitide a qualunque
+dimensione. Il box disegnato NON e' una grafica di stampa: quando
+esistera' l'esecutivo vero, basta sostituire assets/box-front.svg e
+assets/box-back.svg (o cambiare i nomi dei file in index.html).
+
+I 12 soggetti dei puzzle sono illustrazioni in stile manifesto, non
+dipinti. Se si vogliono opere pittoriche come nella collezione Pétanque,
+i prompt pronti sono in PUZZLE-SOGGETTI.md.
+
+
+DA SISTEMARE PRIMA DI PUBBLICARE
+--------------------------------
+1. AREA RISERVATA — il Buyer Command Center e' quello del sito Pétanque
+   e punta allo stesso progetto Supabase (chiavi pubbliche in chiaro in
+   index.html, come negli altri siti). Da decidere se tenerlo condiviso,
+   farne uno dedicato o togliere il link "Area riservata" nel footer.
+2. PREZZI E PAGAMENTO — prezzo del gioco, dei puzzle e Payment Link
+   Stripe: oggi il sito dice "prezzo da confermare" e gli ordini partono
+   via e-mail/telefono.
+3. PAGINE LEGALI — sono quelle del sito Pétanque con nome, dominio e
+   descrizione del prodotto cambiati. Vanno rilette.
+4. DOMINIO — registrare thecurlingstrategy.com (o correggere l'indirizzo
+   in index.html se sara' un altro).

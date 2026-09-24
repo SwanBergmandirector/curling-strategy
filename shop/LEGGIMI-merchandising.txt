@@ -1,0 +1,114 @@
+SEZIONE MERCHANDISING — guida rapida
+====================================
+
+Che cosa c'e' nel sito
+----------------------
+  index.html                  voce "Merchandising" nel menu + sezione
+                              #merchandising + scheda prodotto + stili
+  shop/products.js            IL CATALOGO: unico file da modificare
+  assets/shop/*.svg           12 immagini prodotto (6 puzzle da 1000 pezzi,
+                              6 puzzle da 500 pezzi)
+
+Tutto il resto del sito e' indipendente dal catalogo.
+
+
+Le immagini dei puzzle
+----------------------
+I 12 soggetti sono illustrazioni vettoriali (SVG) disegnate per il sito,
+in assets/shop/ (puzzle-1000-01.svg ... puzzle-500-06.svg). Essendo
+vettoriali si possono esportare alla risoluzione di stampa che serve
+(50x70 cm verticale per i 1000 pezzi, 70x50 cm orizzontale per i 500).
+
+Le stesse immagini alimentano il puzzle online della sezione "Gioca
+online": se si cambia un'immagine qui, cambia anche li'.
+
+Per sostituire un'immagine basta cambiare il campo "img" del prodotto
+(meglio con un nome file nuovo, perche' le immagini in assets/ sono
+servite da Netlify con cache di un anno).
+
+
+Come si mette il prezzo
+-----------------------
+In shop/products.js, dentro "categories":
+
+    price: null     ->  sul sito compare "PREZZO DA CONFERMARE"
+    price: 39.9     ->  sul sito compare "39,90 EUR"
+
+Al momento sono impostati a null tutti e due, perche' i prezzi dei puzzle
+Curling non sono ancora stati decisi. Sul sito Golf erano 39,90 EUR i
+puzzle da 1000 pezzi e 29,90 EUR quelli da 500: se valgono anche qui,
+basta scrivere quei due numeri nelle categorie.
+
+Sotto il titolo della sezione c'e' la riga "Prezzi IVA inclusa - spese di
+spedizione calcolate al momento dell'ordine": se decidi di includere la
+spedizione nel prezzo, quella riga va corretta in index.html (cercare
+"mrc-vat"). Le spese di spedizione vere si impostano nel Payment Link
+di Stripe.
+
+Il prezzo scritto nella categoria vale per tutti i suoi prodotti.
+Per fare un prezzo diverso su un singolo puzzle basta aggiungere
+price: 44.9 dentro quel prodotto.
+
+
+Come si attiva il pagamento Stripe
+----------------------------------
+Si crea un Payment Link su Stripe per ogni articolo e lo si incolla nel
+campo "stripe":
+
+    stripe: "https://buy.stripe.com/XXXXXXXX"
+
+Il link scritto nella categoria vale per tutti i suoi prodotti, quello
+scritto nel prodotto ha la precedenza.
+
+Finche' il campo resta vuoto, il pulsante ACQUISTA apre un'e-mail d'ordine
+gia' compilata (articolo, codice, campi per nome, indirizzo e telefono)
+verso l'indirizzo indicato in "orderEmail".
+
+Nota: a differenza del sito Golf, qui non c'e' ancora un link Stripe
+nemmeno per il gioco da tavolo. I pulsanti "Acquista il gioco" e
+"Acquista ora" in cima alla pagina portano alla sezione ordini, che
+funziona via e-mail e telefono. Quando il Payment Link del gioco esiste,
+si sostituisce href="#order" con il link in due punti di index.html
+(cercare "nav-cta" e "Acquista Ora").
+
+
+Come si aggiunge un nuovo puzzle
+--------------------------------
+  1. metti l'immagine in  assets/shop/   (svg, webp o jpg)
+  2. in shop/products.js copia un blocco prodotto, cambia id, nome,
+     descrizione e percorso immagine
+  3. salva e ripubblica
+
+
+Come si aggiunge un gadget di un altro tipo
+-------------------------------------------
+Esempio: cappellini.
+
+  1. in shop/products.js aggiungi una categoria dentro "categories":
+
+        {
+          id: "cappellini",
+          it: { name: "Cappellini", tag: "Gadget" },
+          en: { name: "Caps", tag: "Gadget" },
+          specs: {
+            it: ["Taglia unica", "Ricamo The Curling Strategy"],
+            en: ["One size", "The Curling Strategy embroidery"]
+          },
+          badge: { it: "Gadget", en: "Gadget" },
+          shape: "landscape",
+          price: null,
+          stripe: ""
+        }
+
+  2. aggiungi i prodotti con  cat: "cappellini"
+
+Il filtro in cima alla sezione (TUTTI / PUZZLE 1000 PEZZI / ...) si aggiorna
+da solo: non c'e' nulla da toccare in index.html.
+
+
+Note utili
+----------
+- Italiano e inglese: ogni prodotto ha i campi "it" ed "en"; il selettore
+  IT/EN gia' presente nel sito cambia anche la sezione merchandising.
+- I testi dei 12 puzzle descrivono il soggetto del dipinto: se cambia
+  l'immagine va riscritto anche il testo.

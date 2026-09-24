@@ -1,0 +1,41 @@
+# THE CURLING STRATEGY — solo hosting statico.
+# La logica applicativa vive su Supabase Edge Functions.
+
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Le pagine legali sono rotte interne gestite in JavaScript: senza queste
+# regole un accesso diretto (o un refresh) risponderebbe 404.
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/cookie-policy"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/termini-condizioni"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/diritto-di-recesso"
+  to = "/index.html"
+  status = 200
